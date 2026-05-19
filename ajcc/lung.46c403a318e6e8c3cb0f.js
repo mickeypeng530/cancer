@@ -22,12 +22,12 @@ var tiT2a=[["cb_tp_ti_mb","main bronchus"],["cb_tp_ti_vp","visceral pleura"],["c
 var tiAll_B=tiT2a.concat(tiT3).concat(tiT4);
 var tiYes_B=[],tiNoCat_B={"T2a":[],"T3":[],"T4":[]};
 var catFor=function(idx){if(idx<tiT2a.length){return "T2a";}if(idx<tiT2a.length+tiT3.length){return "T3";}return "T4";};
-tiAll_B.forEach(function(op,i){var cat=catFor(i);if(k("#"+op[0]).is(":checked")){tiYes_B.push("* "+op[1]+" ("+cat+")");}else{tiNoCat_B[cat].push(op[1]);}});
+tiAll_B.forEach(function(op,i){var cat=catFor(i);if(k("#"+op[0]).is(":checked")){tiYes_B.push("* "+op[1]);}else{tiNoCat_B[cat].push(op[1]);}});
 if(tiYes_B.length){eR+="--- Yes:\n"+tiYes_B.join("\n")+"\n";}
 var noLines_B=[];
-if(tiNoCat_B["T2a"].length){noLines_B.push("* "+tiNoCat_B["T2a"].join(", ")+" (T2a)");}
-if(tiNoCat_B["T3"].length){noLines_B.push("* "+tiNoCat_B["T3"].join(", ")+" (T3)");}
-if(tiNoCat_B["T4"].length){noLines_B.push("* "+tiNoCat_B["T4"].join(", ")+" (T4)");}
+if(tiNoCat_B["T2a"].length){noLines_B.push("* "+tiNoCat_B["T2a"].join(", "));}
+if(tiNoCat_B["T3"].length){noLines_B.push("* "+tiNoCat_B["T3"].join(", "));}
+if(tiNoCat_B["T4"].length){noLines_B.push("* "+tiNoCat_B["T4"].join(", "));}
 if(noLines_B.length){eR+="--- No or Equivocal:\n"+noLines_B.join("\n")+"\n";}
 eR+="\n";
 eR+="4. Regional nodal metastasis\n";
@@ -35,17 +35,17 @@ var rnN1=[["cb_rn_ip","ipsilateral peribronchial"],["cb_rn_ih","ipsilateral hila
 var rnAll_B=rnN1.concat(rnN2).concat(rnN3);
 var rnYes_B=[],rnNoCat_B={"N1":[],"N2":[],"N3":[]};
 var nCatFor=function(idx){if(idx<rnN1.length){return "N1";}if(idx<rnN1.length+rnN2.length){return "N2";}return "N3";};
-rnAll_B.forEach(function(op,i){var cat=nCatFor(i);if(k("#"+op[0]).is(":checked")){rnYes_B.push("* "+op[1]+" ("+cat+")");}else{rnNoCat_B[cat].push(op[1]);}});
+rnAll_B.forEach(function(op,i){var cat=nCatFor(i);if(k("#"+op[0]).is(":checked")){rnYes_B.push("* "+op[1]);}else{rnNoCat_B[cat].push(op[1]);}});
 if(rnYes_B.length){
   eR+="--- Yes:\n"+rnYes_B.join("\n")+"\n";
   var n2Type=k('input[name="radio_n2"]:checked').val();
   var hasN2_B=k(".cb_rn_n2:checked").length>0;
-  if(hasN2_B&&n2Type){eR+="* N2 subtype: N2"+n2Type+"\n";}
+  
 }
 var rnNoLines_B=[];
-if(rnNoCat_B["N1"].length){rnNoLines_B.push("* "+rnNoCat_B["N1"].join(", ")+" (N1)");}
-if(rnNoCat_B["N2"].length){rnNoLines_B.push("* "+rnNoCat_B["N2"].join(", ")+" (N2)");}
-if(rnNoCat_B["N3"].length){rnNoLines_B.push("* "+rnNoCat_B["N3"].join(", ")+" (N3)");}
+if(rnNoCat_B["N1"].length){rnNoLines_B.push("* "+rnNoCat_B["N1"].join(", "));}
+if(rnNoCat_B["N2"].length){rnNoLines_B.push("* "+rnNoCat_B["N2"].join(", "));}
+if(rnNoCat_B["N3"].length){rnNoLines_B.push("* "+rnNoCat_B["N3"].join(", "));}
 if(rnNoLines_B.length){eR+="--- No or Equivocal:\n"+rnNoLines_B.join("\n")+"\n";}
 eR+="\n";
 eR+="5. Distant metastasis (In this study)\n";
@@ -53,18 +53,18 @@ var dmM1a=[["cb_dm_scn","separate tumor nodule(s) in a contralateral lobe"],["cb
 var dmAll_B=dmM1a.concat(dmM1bc);
 var dmYes_B=[],dmNoCat_B={"M1a":[],"M1bc":[]};
 var dmCatFor=function(idx){if(idx<dmM1a.length){return "M1a";}return "M1bc";};
-dmAll_B.forEach(function(op,i){var cat=dmCatFor(i);if(k("#"+op[0]).is(":checked")){dmYes_B.push("* "+op[1]+" ("+cat+")");}else{dmNoCat_B[cat].push(op[1]);}});
+dmAll_B.forEach(function(op,i){var cat=dmCatFor(i);if(k("#"+op[0]).is(":checked")){dmYes_B.push("* "+op[1]);}else{dmNoCat_B[cat].push(op[1]);}});
 var dmO_B=k("#cb_dm_others").is(":checked");
-if(dmO_B){var txtDM=k("#txt_dm_others").val();if(txtDM){dmYes_B.push("* "+txtDM+" (M1bc)");}}
+if(dmO_B){var txtDM=k("#txt_dm_others").val();if(txtDM){dmYes_B.push("* "+txtDM);}}
 if(dmYes_B.length){
   eR+="--- Yes:\n"+dmYes_B.join("\n")+"\n";
   var m1bcType=k('input[name="radio_m1bc"]:checked').val();
   var hasM1bc_B=k(".cb_dm_m1bc:checked").length>0||dmO_B;
-  if(hasM1bc_B&&m1bcType){eR+="* M1bc subtype: M"+m1bcType+"\n";}
+  
 }
 var dmNoLines_B=[];
-if(dmNoCat_B["M1a"].length){dmNoLines_B.push("* "+dmNoCat_B["M1a"].join(", ")+" (M1a)");}
-if(dmNoCat_B["M1bc"].length){dmNoLines_B.push("* "+dmNoCat_B["M1bc"].join(", ")+" (M1bc)");}
+if(dmNoCat_B["M1a"].length){dmNoLines_B.push("* "+dmNoCat_B["M1a"].join(", "));}
+if(dmNoCat_B["M1bc"].length){dmNoLines_B.push("* "+dmNoCat_B["M1bc"].join(", "));}
 if(dmNoLines_B.length){eR+="--- No or Equivocal:\n"+dmNoLines_B.join("\n")+"\n";}
 eR+="\n";
 eR+="6. Other findings:\n\n\n";
