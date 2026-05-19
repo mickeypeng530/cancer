@@ -34,16 +34,16 @@ var tiT4b=[["cb_ti_ms","masticator space","T4b"],["cb_ti_pp","pterygoid plates",
 var tiAll=tiLip.concat(tiOral).concat(tiT4b);
 var tiYes=[],tiNoByCat={"T4a-lip":[],"T4a-oral":[],"T4b":[]};
 tiAll.forEach(function(op){
-  if(v("#"+op[0]).is(":checked")){tiYes.push("* "+op[1]+" ("+op[2]+")");}
+  if(v("#"+op[0]).is(":checked")){tiYes.push("* "+op[1]);}
   else{tiNoByCat[op[2]].push(op[1]);}
 });
 var tiOthers=v("#cb_ti_others").is(":checked");
-if(tiOthers){var txt=v("#txt_ti_others").val();if(txt){tiYes.push("* "+txt+" (T4b)");}}
+if(tiOthers){var txt=v("#txt_ti_others").val();if(txt){tiYes.push("* "+txt);}}
 if(tiYes.length){eR+="--- Yes:\n"+tiYes.join("\n")+"\n";}
 var noLines=[];
-if(tiNoByCat["T4a-lip"].length){noLines.push("* "+tiNoByCat["T4a-lip"].join(", ")+" (T4a-lip)");}
-if(tiNoByCat["T4a-oral"].length){noLines.push("* "+tiNoByCat["T4a-oral"].join(", ")+" (T4a-oral)");}
-if(tiNoByCat["T4b"].length){noLines.push("* "+tiNoByCat["T4b"].join(", ")+" (T4b)");}
+if(tiNoByCat["T4a-lip"].length){noLines.push("* "+tiNoByCat["T4a-lip"].join(", "));}
+if(tiNoByCat["T4a-oral"].length){noLines.push("* "+tiNoByCat["T4a-oral"].join(", "));}
+if(tiNoByCat["T4b"].length){noLines.push("* "+tiNoByCat["T4b"].join(", "));}
 if(noLines.length){eR+="--- No or Equivocal:\n"+noLines.join("\n")+"\n";}
 eR+="\n";
 eR+="4. Regional nodal metastasis\n";
