@@ -12,7 +12,7 @@ var tsNM=s("#cb_ts_nm").is(":checked");var tsL=parseFloat(s("#txt_ts_len").val()
 if(tsNM){eR+="* Non-measurable\n";}else if(tsL){eR+="* Measurable: "+tsL+" cm\n";}else{eR+="* ___ cm\n";}
 eR+="\n3. Tumor invasion\n";
 var t4=[["cb_ti_ct","Celiac trunk"],["cb_ti_sma","Superior mesenteric artery"],["cb_ti_cha","Common hepatic artery"]];var oi=[["cb_ti_smv","Superior mesenteric vein"],["cb_ti_pv","Portal vein"],["cb_ti_ivc","Inferior vena cava"],["cb_ti_a","Aorta"],["cb_ti_r","Rib"],["cb_ti_vb","Vertebral body"]];var iY=[],iN4=[],iNo=[];
-t4.forEach(function(op){if(s("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T4)");}else{iN4.push(op[1]);}});
+t4.forEach(function(op){if(s("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iN4.push(op[1]);}});
 oi.forEach(function(op){if(s("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iNo.push(op[1]);}});
 if(s("#cb_ti_others").is(":checked")){var ti=s("#txt_ti_others").val();if(ti){iY.push("* "+ti);}}
 if(iY.length){eR+="--- Yes:\n"+iY.join("\n")+"\n";}

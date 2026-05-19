@@ -18,7 +18,7 @@ eR+="3. Tumor characteristics\n";
 var tcT4=[["cb_tc_pvt","Portal vein thrombosis"],["cb_tc_hvi","Hepatic vein invasion"],["cb_tc_pvp","Perforation of visceral peritoneum"],["cb_tc_iao","Invasion of adjacent organs"]];
 var tcInfo=[["cb_tc_a","Ascites"],["cb_tc_smg","Splenomegaly"],["cb_tc_c","Cirrhosis"],["cb_tc_pcv","Portosystemic collateral vessels"],["cb_tc_fl","Fatty liver"],["cb_tc_tep","Typical enhancement pattern"]];
 var tcYes_B=[],tcNo_B=[];
-tcT4.forEach(function(op){if(o("#"+op[0]).is(":checked")){tcYes_B.push("* "+op[1]+" (T4)");}else{tcNo_B.push(op[1]);}});
+tcT4.forEach(function(op){if(o("#"+op[0]).is(":checked")){tcYes_B.push("* "+op[1]);}else{tcNo_B.push(op[1]);}});
 tcInfo.forEach(function(op){if(o("#"+op[0]).is(":checked")){tcYes_B.push("* "+op[1]);}});
 if(o("#cb_tc_pvt").is(":checked")){var pvt=o("#txt_tc_pvt").val();if(pvt){tcYes_B.push("  PVT location: "+pvt);}}
 if(o("#cb_tc_hvi").is(":checked")){var hvi=o("#txt_tc_hvi").val();if(hvi){tcYes_B.push("  HVI location: "+hvi);}}
