@@ -16,7 +16,7 @@ eR+="\n";
 eR+="3. Tumor invasion\n";
 var tiOpts_B=[["cb_ti_t0","T0","No evidence of primary tumor"],["cb_ti_t1","T1","Tumor confines in the bile duct"],["cb_ti_t2a","T2a","Tumor invades beyond the wall of the bile duct to surrounding adipose tissue"],["cb_ti_t2b","T2b","Tumor invades adjacent hepatic parenchyma"],["cb_ti_t3","T3","Unilateral branches of the portal vein or hepatic artery"],["cb_ti_t4_mpv","T4","Main portal vein or portal branches bilaterally"],["cb_ti_t4_cha","T4","Common hepatic artery"],["cb_ti_t4_u2bd","T4","Unilateral 2nd-order branch bile duct and contralateral portal vein or hepatic artery"]];
 var tiYes_B=[],tiNo_B=[];
-tiOpts_B.forEach(function(op){if(i("#"+op[0]).is(":checked")){tiYes_B.push("* "+op[2]+" ("+op[1]+")");}else{tiNo_B.push(op[2]+" ("+op[1]+")");}});
+tiOpts_B.forEach(function(op){if(i("#"+op[0]).is(":checked")){tiYes_B.push("* "+op[2]);}else{tiNo_B.push(op[2]);}});
 if(tiYes_B.length){eR+="--- Yes:\n"+tiYes_B.join("\n")+"\n";}
 if(tiNo_B.length){eR+="--- No or Equivocal:\n* "+tiNo_B.join("; ")+"\n";}
 eR+="\n";

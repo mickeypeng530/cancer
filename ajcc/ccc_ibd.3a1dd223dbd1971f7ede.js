@@ -21,7 +21,7 @@ eR+="\n";
 eR+="3. Tumor invasion\n";
 var tiOpts_B=[["cb_ti_t0","T0","No evidence of primary tumor"],["cb_ti_t2","T2","intrahepatic vascular invasion"],["cb_ti_t3","T3","tumor perforating the visceral peritoneum"],["cb_ti_t4","T4","tumor involving local extrahepatic structures by direct invasion"]];
 var tiYes_B=[],tiNo_B=[];
-tiOpts_B.forEach(function(op){if(i("#"+op[0]).is(":checked")){tiYes_B.push("* "+op[2]+" ("+op[1]+")");}else{tiNo_B.push(op[2]+" ("+op[1]+")");}});
+tiOpts_B.forEach(function(op){if(i("#"+op[0]).is(":checked")){tiYes_B.push("* "+op[2]);}else{tiNo_B.push(op[2]);}});
 if(tiYes_B.length){eR+="--- Yes:\n"+tiYes_B.join("\n")+"\n";}
 if(tiNo_B.length){eR+="--- No or Equivocal:\n* "+tiNo_B.join("; ")+"\n";}
 eR+="\n";

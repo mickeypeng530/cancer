@@ -38,16 +38,16 @@ var catFor=function(idx){
 };
 tiAll_B.forEach(function(op,i){
   var cat=catFor(i);
-  if(V("#"+op[0]).is(":checked")){tiYes_B.push("* "+op[1]+" ("+cat+")");}else{tiNoCat_B[cat].push(op[1]);}
+  if(V("#"+op[0]).is(":checked")){tiYes_B.push("* "+op[1]);}else{tiNoCat_B[cat].push(op[1]);}
 });
 var tiOther_B=V("#cb_ti_others").is(":checked");
-if(tiOther_B){var txtTI=V("#txt_ti_others").val();if(txtTI){tiYes_B.push("* "+txtTI+" (T4b)");}}
+if(tiOther_B){var txtTI=V("#txt_ti_others").val();if(txtTI){tiYes_B.push("* "+txtTI);}}
 if(tiYes_B.length){eR+="--- Yes:\n"+tiYes_B.join("\n")+"\n";}
 var noLines_B=[];
-if(tiNoCat_B["T2"].length){noLines_B.push("* "+tiNoCat_B["T2"].join(", ")+" (T2)");}
-if(tiNoCat_B["T3"].length){noLines_B.push("* "+tiNoCat_B["T3"].join(", ")+" (T3)");}
-if(tiNoCat_B["T4a"].length){noLines_B.push("* "+tiNoCat_B["T4a"].join(", ")+" (T4a)");}
-if(tiNoCat_B["T4b"].length){noLines_B.push("* "+tiNoCat_B["T4b"].join(", ")+" (T4b)");}
+if(tiNoCat_B["T2"].length){noLines_B.push("* "+tiNoCat_B["T2"].join(", "));}
+if(tiNoCat_B["T3"].length){noLines_B.push("* "+tiNoCat_B["T3"].join(", "));}
+if(tiNoCat_B["T4a"].length){noLines_B.push("* "+tiNoCat_B["T4a"].join(", "));}
+if(tiNoCat_B["T4b"].length){noLines_B.push("* "+tiNoCat_B["T4b"].join(", "));}
 if(noLines_B.length){eR+="--- No or Equivocal:\n"+noLines_B.join("\n")+"\n";}
 eR+="\n";
 eR+="4. Regional nodal metastasis\n";
