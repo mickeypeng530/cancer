@@ -15,7 +15,7 @@ eR+="\n";
 var invOptions=[["cb_ti_mp","muscularis propria","T2"],["cb_ti_pt","through muscularis propria into pericolorectal tissues","T3"],["cb_ti_vp","visceral peritoneum penetration","T4a"],["cb_ti_others","adjacent organ invasion","T4b"]];
 var invYes=[],invNo=[];
 var tiNa=a("#cb_ti_na").is(":checked");
-invOptions.forEach(function(op){var checked=a("#"+op[0]).is(":checked");var text="* "+op[1]+" ("+op[2]+")";if(op[0]==="cb_ti_others"&&checked){var extra=a("#txt_ti_others").val()||"___";text="* adjacent organ invasion ("+op[2]+"): "+extra;}if(checked){invYes.push(text);}else{invNo.push(text);}});
+invOptions.forEach(function(op){var checked=a("#"+op[0]).is(":checked");var text="* "+op[1];if(op[0]==="cb_ti_others"&&checked){var extra=a("#txt_ti_others").val()||"___";text="* adjacent organ invasion: "+extra;}if(checked){invYes.push(text);}else{invNo.push(text);}});
 eR+="3. Tumor invasion\n";
 if(tiNa){eR+="--- Tx: Tumor cannot be visualized in this imaging study\n";}else{if(invYes.length){eR+="--- Yes:\n"+invYes.join("\n")+"\n";}if(invNo.length){eR+="--- No or Equivocal:\n"+invNo.join("\n")+"\n";}}
 eR+="\n";
