@@ -26,11 +26,11 @@ if(isNA){eR+="--- Not assessable\n";}
 else{
   var t2=[["cb_ti_mp","muscularis propria"]],t3=[["cb_ti_pvt","perivesical soft tissue"]],t4a=[["cb_ti_p","prostate"],["cb_ti_sv","seminal vesicles"],["cb_ti_u","uterus"],["cb_ti_v","vagina"]],t4b=[["cb_ti_pw","pelvic wall"],["cb_ti_aw","abdominal wall"]];
   var iY=[],iNcat={T2:[],T3:[],T4a:[],T4b:[]};
-  t2.forEach(function(op){if(c("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T2)");}else{iNcat.T2.push(op[1]);}});
-  t3.forEach(function(op){if(c("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T3)");}else{iNcat.T3.push(op[1]);}});
-  t4a.forEach(function(op){if(c("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T4a)");}else{iNcat.T4a.push(op[1]);}});
-  t4b.forEach(function(op){if(c("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T4b)");}else{iNcat.T4b.push(op[1]);}});
-  if(c("#cb_ti_others").is(":checked")){var ti=c("#txt_ti_others").val();if(ti){iY.push("* "+ti+" (T4b)");}}
+  t2.forEach(function(op){if(c("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iNcat.T2.push(op[1]);}});
+  t3.forEach(function(op){if(c("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iNcat.T3.push(op[1]);}});
+  t4a.forEach(function(op){if(c("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iNcat.T4a.push(op[1]);}});
+  t4b.forEach(function(op){if(c("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iNcat.T4b.push(op[1]);}});
+  if(c("#cb_ti_others").is(":checked")){var ti=c("#txt_ti_others").val();if(ti){iY.push("* "+ti);}}
   if(iY.length){eR+="--- Yes:\n"+iY.join("\n")+"\n";}
   var noLines=[];
   ["T2","T3","T4a","T4b"].forEach(function(cat){if(iNcat[cat].length){noLines.push("* "+iNcat[cat].join(", ")+" ("+cat+")");}});
@@ -46,9 +46,9 @@ if(rnN.length){eR+="--- No or Equivocal:\n* "+rnN.join(", ")+"\n";}
 eR+="\n5. Distant metastasis (In this study)\n";
 var m1a=[["cb_dm_ln","Non-regional lymph nodes"]],m1b=[["cb_dm_lu","lung"],["cb_dm_li","liver"],["cb_dm_ad","adrenal"],["cb_dm_b","bone"]];
 var dmY=[],dmN=[];
-m1a.forEach(function(op){if(c("#"+op[0]).is(":checked")){dmY.push(op[1]+" (M1a)");}else{dmN.push(op[1]);}});
-m1b.forEach(function(op){if(c("#"+op[0]).is(":checked")){dmY.push(op[1]+" (M1b)");}else{dmN.push(op[1]);}});
-if(c("#cb_dm_others").is(":checked")){var t=c("#txt_dm_others").val();if(t){dmY.push(t+" (M1b)");}}
+m1a.forEach(function(op){if(c("#"+op[0]).is(":checked")){dmY.push(op[1]);}else{dmN.push(op[1]);}});
+m1b.forEach(function(op){if(c("#"+op[0]).is(":checked")){dmY.push(op[1]);}else{dmN.push(op[1]);}});
+if(c("#cb_dm_others").is(":checked")){var t=c("#txt_dm_others").val();if(t){dmY.push(t);}}
 if(dmY.length){eR+="--- Yes:\n* "+dmY.join(", ")+"\n";}
 if(dmN.length){eR+="--- No or Equivocal:\n* "+dmN.join(", ")+"\n";}
 eR+="\n6. Other findings:\n\n\n";

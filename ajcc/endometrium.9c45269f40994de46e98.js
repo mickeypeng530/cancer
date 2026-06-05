@@ -17,11 +17,11 @@ else{
 }
 var t2=[["cb_ti_cx","stromal connective tissue of the cervix"]],t3a=[["cb_ti_sa","serosa and/or adnexa"]],t3b=[["cb_ti_pm","parametrium"],["cb_ti_va","vagina"]],t4=[["cb_ti_bd","bladder"],["cb_ti_bw","bowel"]];
 var iY=[],iNcat={T2:[],T3a:[],T3b:[],T4:[]};
-t2.forEach(function(op){if(c("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T2)");}else{iNcat.T2.push(op[1]);}});
-t3a.forEach(function(op){if(c("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T3a)");}else{iNcat.T3a.push(op[1]);}});
-t3b.forEach(function(op){if(c("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T3b)");}else{iNcat.T3b.push(op[1]);}});
-t4.forEach(function(op){if(c("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T4)");}else{iNcat.T4.push(op[1]);}});
-if(c("#cb_ti_others").is(":checked")){var ti=c("#txt_ti_others").val();if(ti){iY.push("* "+ti+" (T4)");}}
+t2.forEach(function(op){if(c("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iNcat.T2.push(op[1]);}});
+t3a.forEach(function(op){if(c("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iNcat.T3a.push(op[1]);}});
+t3b.forEach(function(op){if(c("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iNcat.T3b.push(op[1]);}});
+t4.forEach(function(op){if(c("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iNcat.T4.push(op[1]);}});
+if(c("#cb_ti_others").is(":checked")){var ti=c("#txt_ti_others").val();if(ti){iY.push("* "+ti);}}
 if(iY.length){eR+="--- Yes:\n"+iY.join("\n")+"\n";}
 var noLines=[];
 ["T2","T3a","T3b","T4"].forEach(function(cat){if(iNcat[cat].length){noLines.push("* "+iNcat[cat].join(", ")+" ("+cat+")");}});
@@ -29,8 +29,8 @@ if(noLines.length){eR+="--- No or Equivocal:\n"+noLines.join("\n")+"\n";}
 eR+="\n4. Regional nodal metastasis\n";
 var rnR=[["cb_rn_rpm","right paramesonephric"],["cb_rn_lpm","left paramesonephric"],["cb_rn_rii","right common iliac"],["cb_rn_lii","left common iliac"],["cb_rn_rei","right external iliac"],["cb_rn_lei","left external iliac"],["cb_rn_ro","right obturator"],["cb_rn_lo","left obturator"],["cb_rn_rci","right circumflex"],["cb_rn_lci","left circumflex"]],rnPA=[["cb_rn_paim","paraaortic (inframesenteric)"],["cb_rn_pair","paraaortic (infrarenal)"],["cb_rn_pasr","paraaortic (suprarenal)"]];
 var rnY=[],rnN=[];
-rnR.forEach(function(op){if(c("#"+op[0]).is(":checked")){rnY.push(op[1]+" (N1)");}else{rnN.push(op[1]);}});
-rnPA.forEach(function(op){if(c("#"+op[0]).is(":checked")){rnY.push(op[1]+" (N2)");}else{rnN.push(op[1]);}});
+rnR.forEach(function(op){if(c("#"+op[0]).is(":checked")){rnY.push(op[1]);}else{rnN.push(op[1]);}});
+rnPA.forEach(function(op){if(c("#"+op[0]).is(":checked")){rnY.push(op[1]);}else{rnN.push(op[1]);}});
 if(rnY.length){eR+="--- Yes:\n* "+rnY.join(", ")+"\n";}
 if(rnN.length){eR+="--- No or Equivocal:\n* "+rnN.join(", ")+"\n";}
 eR+="\n5. Distant metastasis (In this study)\n";

@@ -15,11 +15,11 @@ if(isNA){eR+="--- Not assessable\n";}
 else{
   var t3a=[["cb_ti_prf","perirenal fat"],["cb_ti_rsf","renal sinus fat"],["cb_ti_rv","renal vein or segmental branches"]],t3bc=[["cb_ti_ivc","IVC"]],t3c=[["cb_ti_ivc_w","wall of vena cava"]],t4=[["cb_ti_iag","ipsilateral adrenal gland"]];
   var iY=[],iN3a=[],iN3bc=[],iN3c=[],iN4=[];
-  t3a.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T3a)");}else{iN3a.push(op[1]);}});
+  t3a.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iN3a.push(op[1]);}});
   t3bc.forEach(function(op){if(i("#"+op[0]).is(":checked")){var lvl=i('input[name="rb_ti_ivc"]:checked').val();var tag=lvl==="3c"?"T3c":"T3b";iY.push("* "+op[1]+" ("+tag+")");}else{iN3bc.push(op[1]);}});
-  t3c.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T3c)");}else{iN3c.push(op[1]);}});
-  t4.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T4)");}else{iN4.push(op[1]);}});
-  if(i("#cb_ti_others").is(":checked")){var ti=i("#txt_ti_others").val();if(ti){iY.push("* "+ti+" (T4)");}}
+  t3c.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iN3c.push(op[1]);}});
+  t4.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iN4.push(op[1]);}});
+  if(i("#cb_ti_others").is(":checked")){var ti=i("#txt_ti_others").val();if(ti){iY.push("* "+ti);}}
   if(iY.length){eR+="--- Yes:\n"+iY.join("\n")+"\n";}
   var noLines=[];
   if(iN3a.length){noLines.push("* "+iN3a.join(", ")+" (T3a)");}
@@ -36,8 +36,8 @@ if(rnN.length){eR+="--- No or Equivocal:\n* "+rnN.join(", ")+"\n";}
 eR+="\n5. Distant metastasis (In this study)\n";
 var dmC=[["cb_dm_li","liver"],["cb_dm_ad","adrenal"],["cb_dm_lu","lung"]],dmB=[["cb_dm_b","bone"]];
 var dmY=[],dmN=[];
-dmC.forEach(function(op){if(i("#"+op[0]).is(":checked")){dmY.push(op[1]+" (M1c)");}else{dmN.push(op[1]);}});
-dmB.forEach(function(op){if(i("#"+op[0]).is(":checked")){dmY.push(op[1]+" (M1b)");}else{dmN.push(op[1]);}});
+dmC.forEach(function(op){if(i("#"+op[0]).is(":checked")){dmY.push(op[1]);}else{dmN.push(op[1]);}});
+dmB.forEach(function(op){if(i("#"+op[0]).is(":checked")){dmY.push(op[1]);}else{dmN.push(op[1]);}});
 if(i("#cb_dm_others").is(":checked")){var t=i("#txt_dm_others").val();if(t){dmY.push(t);}}
 if(dmY.length){eR+="--- Yes:\n* "+dmY.join(", ")+"\n";}
 if(dmN.length){eR+="--- No or Equivocal:\n* "+dmN.join(", ")+"\n";}

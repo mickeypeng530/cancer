@@ -8,13 +8,13 @@ if(tsNM){eR+="--- Non-measurable\n";}else if(tsL){eR+="--- Measurable: "+tsL+" c
 eR+="\n3. Tumor invasion\n";
 var t1=[["cb_ti_cx","cervix"]],t2a=[["cb_ti_ub","uterine body"],["cb_ti_uv","upper 2/3 of vagina"]],t2b=[["cb_ti_rpm","right parametrium"],["cb_ti_lpm","left parametrium"]],t3a=[["cb_ti_lv","lower 1/3 of vagina"]],t3b=[["cb_ti_rpw","right pelvic wall"],["cb_ti_lpw","left pelvic wall"],["cb_ti_rh","right hydronephrosis"],["cb_ti_lh","left hydronephrosis"]],t4=[["cb_ti_a","adnexa"],["cb_ti_b","bladder"],["cb_ti_r","rectum"],["cb_ti_sc","sigmoid colon"]];
 var iY=[],iNcat={T1:[],T2a:[],T2b:[],T3a:[],T3b:[],T4:[]};
-t1.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T1)");}else{iNcat.T1.push(op[1]);}});
-t2a.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T2a)");}else{iNcat.T2a.push(op[1]);}});
-t2b.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T2b)");}else{iNcat.T2b.push(op[1]);}});
-t3a.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T3a)");}else{iNcat.T3a.push(op[1]);}});
-t3b.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T3b)");}else{iNcat.T3b.push(op[1]);}});
-t4.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T4)");}else{iNcat.T4.push(op[1]);}});
-if(i("#cb_ti_others").is(":checked")){var ti=i("#txt_ti_others").val();if(ti){iY.push("* "+ti+" (T4)");}}
+t1.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iNcat.T1.push(op[1]);}});
+t2a.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iNcat.T2a.push(op[1]);}});
+t2b.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iNcat.T2b.push(op[1]);}});
+t3a.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iNcat.T3a.push(op[1]);}});
+t3b.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iNcat.T3b.push(op[1]);}});
+t4.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iNcat.T4.push(op[1]);}});
+if(i("#cb_ti_others").is(":checked")){var ti=i("#txt_ti_others").val();if(ti){iY.push("* "+ti);}}
 if(iY.length){eR+="--- Yes:\n"+iY.join("\n")+"\n";}
 var noLines=[];
 ["T1","T2a","T2b","T3a","T3b","T4"].forEach(function(cat){if(iNcat[cat].length){noLines.push("* "+iNcat[cat].join(", ")+" ("+cat+")");}});
@@ -22,8 +22,8 @@ if(noLines.length){eR+="--- No or Equivocal:\n"+noLines.join("\n")+"\n";}
 eR+="\n4. Regional nodal metastasis\n";
 var rnR=[["cb_rn_rpc","right parametrial/paracervical"],["cb_rn_lpc","left parametrial/paracervical"],["cb_rn_rpm","right paramesonephric"],["cb_rn_lpm","left paramesonephric"],["cb_rn_ro","right obturator"],["cb_rn_lo","left obturator"],["cb_rn_ri","right internal iliac"],["cb_rn_li","left internal iliac"],["cb_rn_rii","right common iliac"],["cb_rn_lii","left common iliac"],["cb_rn_rei","right external iliac"],["cb_rn_lei","left external iliac"],["cb_rn_rci","right circumflex"],["cb_rn_lci","left circumflex"],["cb_rn_s","sacral"]],rnPa=[["cb_rn_pa","paraaortic"]];
 var rnY=[],rnN=[];
-rnR.forEach(function(op){if(i("#"+op[0]).is(":checked")){rnY.push(op[1]+" (N1)");}else{rnN.push(op[1]);}});
-rnPa.forEach(function(op){if(i("#"+op[0]).is(":checked")){rnY.push(op[1]+" (N2)");}else{rnN.push(op[1]);}});
+rnR.forEach(function(op){if(i("#"+op[0]).is(":checked")){rnY.push(op[1]);}else{rnN.push(op[1]);}});
+rnPa.forEach(function(op){if(i("#"+op[0]).is(":checked")){rnY.push(op[1]);}else{rnN.push(op[1]);}});
 if(rnY.length){eR+="--- Yes:\n* "+rnY.join(", ")+"\n";}
 if(rnN.length){eR+="--- No or Equivocal:\n* "+rnN.join(", ")+"\n";}
 eR+="\n5. Distant metastasis (In this study)\n";

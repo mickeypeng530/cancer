@@ -15,11 +15,11 @@ if(hasAsc){eR+="--- Ascites: present\n";}
 eR+="\n3. Tumor invasion\n";
 var t2a=[["cb_ti_t2_u","uterus"],["cb_ti_t2_ft","fallopian tube"]],t2b=[["cb_ti_t2_lb","large bowel"],["cb_ti_t2_ub","urinary bladder"],["cb_ti_t2_sb","small bowel"],["cb_ti_t2_o","omentum"]],t3=[["cb_ti_t3_lb","large bowel"],["cb_ti_t3_sb","small bowel"],["cb_ti_t3_s","spleen"],["cb_ti_t3_lvs","liver surface"],["cb_ti_t3_sps","subphrenic space"],["cb_ti_t3_o","omentum"],["cb_ti_t3_ph","porta hepatic"],["cb_ti_t3_ls","lesser sac"],["cb_ti_t3_ghl","gastrohepatic ligament"],["cb_ti_t3_fl","Falciform ligament"]];
 var iY=[],iNcat={T2a:[],T2b:[],T3:[]};
-t2a.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T2a)");}else{iNcat.T2a.push(op[1]);}});
-t2b.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T2b)");}else{iNcat.T2b.push(op[1]);}});
+t2a.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iNcat.T2a.push(op[1]);}});
+t2b.forEach(function(op){if(i("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iNcat.T2b.push(op[1]);}});
 var t3gt2=i("#cb_ti_t3_2cm").is(":checked");
 t3.forEach(function(op){if(i("#"+op[0]).is(":checked")){var tag=t3gt2?"T3c":"T3b";iY.push("* "+op[1]+" ("+tag+")");}else{iNcat.T3.push(op[1]);}});
-if(i("#cb_ti_others").is(":checked")){var ti=i("#txt_ti_others").val();if(ti){iY.push("* "+ti+" (T3)");}}
+if(i("#cb_ti_others").is(":checked")){var ti=i("#txt_ti_others").val();if(ti){iY.push("* "+ti);}}
 if(t3gt2){iY.push("* T3 deposit > 2 cm (upgrade to T3c)");}
 if(iY.length){eR+="--- Yes:\n"+iY.join("\n")+"\n";}
 var noLines=[];
@@ -29,7 +29,7 @@ eR+="\n4. Regional nodal metastasis\n";
 var rnR=[["cb_rn_rei","right external iliac"],["cb_rn_lei","left external iliac"],["cb_rn_rii","right common iliac"],["cb_rn_lii","left common iliac"],["cb_rn_ro","right obturator"],["cb_rn_lo","left obturator"],["cb_rn_rci","right circumflex"],["cb_rn_lci","left circumflex"],["cb_rn_ri","right internal iliac"],["cb_rn_li","left internal iliac"]],rnPA=[["cb_rn_paim","paraaortic (inframesenteric)"],["cb_rn_pair","paraaortic (infrarenal)"],["cb_rn_pasr","paraaortic (suprarenal)"]];
 var rnY=[],rnN=[];
 rnR.forEach(function(op){if(i("#"+op[0]).is(":checked")){rnY.push(op[1]);}else{rnN.push(op[1]);}});
-rnPA.forEach(function(op){if(i("#"+op[0]).is(":checked")){rnY.push(op[1]+" (N2)");}else{rnN.push(op[1]);}});
+rnPA.forEach(function(op){if(i("#"+op[0]).is(":checked")){rnY.push(op[1]);}else{rnN.push(op[1]);}});
 if(rnY.length){eR+="--- Yes:\n* "+rnY.join(", ")+"\n";}
 if(rnN.length){eR+="--- No or Equivocal:\n* "+rnN.join(", ")+"\n";}
 eR+="\n5. Distant metastasis (In this study)\n";

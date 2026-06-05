@@ -15,10 +15,10 @@ if(pSel){eR+=pSel+"\n";}else{eR+="___\n";}
 eR+="\n3. Tumor invasion\n";
 var t3a=[["cb_ti_ecr","right extracapsular extension"],["cb_ti_ecl","left extracapsular extension"]],t3b=[["cb_ti_svr","right seminal vesicle"],["cb_ti_svl","left seminal vesicle"]],t4=[["cb_ti_psr","right perineal space"],["cb_ti_psl","left perineal space"],["cb_ti_ub","urinary bladder"],["cb_ti_rec","rectum"],["cb_ti_es","external sphincter"],["cb_ti_lm","levator muscles"]];
 var iY=[],iNcat={T3a:[],T3b:[],T4:[]};
-t3a.forEach(function(op){if(a("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T3a)");}else{iNcat.T3a.push(op[1]);}});
-t3b.forEach(function(op){if(a("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T3b)");}else{iNcat.T3b.push(op[1]);}});
-t4.forEach(function(op){if(a("#"+op[0]).is(":checked")){iY.push("* "+op[1]+" (T4)");}else{iNcat.T4.push(op[1]);}});
-if(a("#cb_ti_others").is(":checked")){var ti=a("#txt_ti_others").val();if(ti){iY.push("* "+ti+" (T4)");}}
+t3a.forEach(function(op){if(a("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iNcat.T3a.push(op[1]);}});
+t3b.forEach(function(op){if(a("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iNcat.T3b.push(op[1]);}});
+t4.forEach(function(op){if(a("#"+op[0]).is(":checked")){iY.push("* "+op[1]);}else{iNcat.T4.push(op[1]);}});
+if(a("#cb_ti_others").is(":checked")){var ti=a("#txt_ti_others").val();if(ti){iY.push("* "+ti);}}
 if(iY.length){eR+="--- Yes:\n"+iY.join("\n")+"\n";}
 var noLines=[];
 ["T3a","T3b","T4"].forEach(function(cat){if(iNcat[cat].length){noLines.push("* "+iNcat[cat].join(", ")+" ("+cat+")");}});
@@ -31,11 +31,11 @@ if(rnN.length){eR+="--- No or Equivocal:\n* "+rnN.join(", ")+"\n";}
 eR+="\n5. Distant metastasis (In this study)\n";
 var m1a=[["cb_dm_nrl_ci_r","right common iliac"],["cb_dm_nrl_ci_l","left common iliac"],["cb_dm_nrl_i_r","right inguinal"],["cb_dm_nrl_i_l","left inguinal"],["cb_dm_nrl_pa","paraaortic"]],m1b=[["cb_dm_b","bone"]],m1c=[["cb_dm_li","liver"],["cb_dm_ad","adrenal"],["cb_dm_lu","lung"]];
 var dmY=[],dmN=[];
-m1a.forEach(function(op){if(a("#"+op[0]).is(":checked")){dmY.push(op[1]+" (M1a)");}else{dmN.push(op[1]);}});
-m1b.forEach(function(op){if(a("#"+op[0]).is(":checked")){dmY.push(op[1]+" (M1b)");}else{dmN.push(op[1]);}});
-m1c.forEach(function(op){if(a("#"+op[0]).is(":checked")){dmY.push(op[1]+" (M1c)");}else{dmN.push(op[1]);}});
-if(a("#cb_dm_nrl_others").is(":checked")){var t=a("#txt_dm_nrl_others").val();if(t){dmY.push(t+" (M1a)");}}
-if(a("#cb_dm_others").is(":checked")){var t=a("#txt_dm_others").val();if(t){dmY.push(t+" (M1c)");}}
+m1a.forEach(function(op){if(a("#"+op[0]).is(":checked")){dmY.push(op[1]);}else{dmN.push(op[1]);}});
+m1b.forEach(function(op){if(a("#"+op[0]).is(":checked")){dmY.push(op[1]);}else{dmN.push(op[1]);}});
+m1c.forEach(function(op){if(a("#"+op[0]).is(":checked")){dmY.push(op[1]);}else{dmN.push(op[1]);}});
+if(a("#cb_dm_nrl_others").is(":checked")){var t=a("#txt_dm_nrl_others").val();if(t){dmY.push(t);}}
+if(a("#cb_dm_others").is(":checked")){var t=a("#txt_dm_others").val();if(t){dmY.push(t);}}
 if(dmY.length){eR+="--- Yes:\n* "+dmY.join(", ")+"\n";}
 if(dmN.length){eR+="--- No or Equivocal:\n* "+dmN.join(", ")+"\n";}
 eR+="\n6. Other findings:\n\n\n";
